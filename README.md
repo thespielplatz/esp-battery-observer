@@ -5,9 +5,9 @@ _by [#thespielplatz](https://t.me/thespielplatz)_
 
 This project is a boilerplate project for sending json data via post request to a specific url with the help of the wifimanager project. In this case I used it to monitor the battery data of the [battery shield](https://github.com/thespielplatz/esp-battery-shield).
 
-The project sends the data per default only every 5min. If you want to change the intervall e.g. to 1 second
+The project sends the data per default only every 5min. If you want to change the intervall e.g. to 30 second
 ```cpp
-Observer *observer = new Observer(1000);
+const int postRequestTimeInSeconds = 30;
 ```
 
 You can remove the battery shield implementation completely. See [Adapt the code](#adapt-the-code)

@@ -11,6 +11,7 @@ void Config::loadConfigFile(const String& filename) {
   }
   if (!SPIFFS.exists(filename)) {
     Serial.println("Config file does not exist, using default configuration");
+    deserializeJson(options, "{}");
     return;
   }
 
@@ -60,7 +61,7 @@ void Config::setValue(const String& key, const String& value) {
 }
 
 String Config::getValue(const String& key) {
-  if (options[key] == nullptr) {
+  if (!options.containsKey(key)) {
     return "";
   }
   return options[key];
